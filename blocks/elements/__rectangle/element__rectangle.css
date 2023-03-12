@@ -1,0 +1,8 @@
+.element__rectangle {
+  display: flex;
+  flex-direction: column;
+  max-width: 282px;
+  height: 361px;
+  border-radius: 10px;
+  background: #FFFFFF;    
+}
