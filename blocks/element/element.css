@@ -1,4 +1,4 @@
-.element__rectangle {
+.element {
   display: flex;
   flex-direction: column;
   max-width: 282px;
