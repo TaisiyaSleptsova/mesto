@@ -10,6 +10,8 @@
   background-color: transparent;
   background-position: 50%;
   background-repeat: no-repeat;
+  background-size: cover;
+  cursor:pointer;
 }
 
 .popup__close:hover {

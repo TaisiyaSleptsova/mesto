@@ -13,7 +13,7 @@ ____
 
 ## Ссылка на страницу:
 
-https://github.com/TaisiyaSleptsova/mesto
+https://taisiyasleptsova.github.io/mesto/
 ________
 
 
