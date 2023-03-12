@@ -1,4 +1,4 @@
-.popup__form_input-job {
+.popup__form_input-conteiner_job {
   font-size: 14px;
   font-weight: 400;
   line-height: 16.94px;
@@ -12,7 +12,7 @@
 }
 
 @media screen and (max-width: 900px) {
-  .popup__form_input-job {
+  .popup__form_input-conteiner_job {
     margin-bottom: 45px;
   }  
 }
