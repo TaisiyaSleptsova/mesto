@@ -16,11 +16,7 @@
 @import url(../blocks/profile/__add-button/profile__add-button.css);
 
 @import url(../blocks/elements/elements.css);
-<<<<<<< HEAD
 @import url(../blocks/element/element.css);
-=======
-@import url(../blocks/element/__rectangle/element__rectangle.css);
->>>>>>> c6fb8726544ed54d5a76b697c25a0bb08581c78a
 @import url(../blocks/element/__mask-group/element__mask-group.css);
 @import url(../blocks/element/__info/element__info.css);
 @import url(../blocks/element/__title/element__title.css);
