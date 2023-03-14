@@ -4,8 +4,8 @@ const popupOpenButtomElement = document.querySelector('.profile__edit-button');
 const profileNameElement = document.querySelector('.profile__title');
 const profileJobElement = document.querySelector('.profile__subtitle');
 const formElement = popupElement.querySelector('.form');
-const nameInput = formElement.querySelector('.form__input-name');
-const jobInput = formElement.querySelector('.form__input-job');
+const nameInput = formElement.querySelector('.form__input_name');
+const jobInput = formElement.querySelector('.form__input_job');
 
 const openPopup = function () {
     popupElement.classList.add('popup_opened');
