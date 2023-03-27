@@ -35,7 +35,7 @@ popupCloseButtomElement.addEventListener('click', function() {
 formElement.addEventListener('submit', handleFormSubmit);
 
 //попапы
-const popupCards = document.querySelector('.popup__cards');
+const popupCards = document.querySelector('.popup_cards');
 
 
 //кнопки открытия
@@ -159,7 +159,7 @@ console.log(submitCards);
 
 //Попап для увеличения фотографий
 
-const popupZoom = document.querySelector('.popup__zoom');
+const popupZoom = document.querySelector('.popup_zoom');
 const popupImageClose = popupZoom.querySelector('.popup__close');
 
 //закрытие попапа увеличенных фотографий
