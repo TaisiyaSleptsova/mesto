@@ -1,4 +1,4 @@
-.popup {
+.popup__cards {
   justify-content: center;
   align-items: center;
   width: 100%;
@@ -10,5 +10,4 @@
   visibility: hidden;
   opacity: 0;
   transition: visibility 0s, opacity 0.5s linear;
-  display: flex;
 }
