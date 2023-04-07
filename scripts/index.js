@@ -15,14 +15,46 @@ const listCards = document.querySelector('.elements__list');
 nameInput.value = profileNameElement.textContent;
 jobInput.value = profileJobElement.textContent;
 
-//функция открытия
-const openPopup = function (popupElementProfile) {
-  popupElementProfile.classList.add('popup_opened');
+const openPopup = function (popupElement) {
+  popupElement.classList.add('popup_opened');
+  //добавляем функцию закрытия попапа: если при открытом попапе будет нажатие кнопки, функция проверит = ли эта кнопка Esc и закроет попап
+  document.addEventListener('keydown', closePopupEscape);
 }
 
-const closePopup = function (popupElementProfile) {
-  popupElementProfile.classList.remove('popup_opened');
+const closePopup = function (popupElement) {
+  popupElement.classList.remove('popup_opened')
 };
+
+//Функция закрытия попапа при нажатии на Esc
+const closePopupEscape = (evt) => {
+  //если нажата кнопка Esc 
+  if (evt.key === 'Escape') {
+    const activePopup = document.querySelector('.popup_opened')
+    // и если попап открыт
+    if (activePopup) {    
+      //вызываем функцию  закрытия попапа
+      closePopup(activePopup)
+    }
+  }
+};
+
+//Закрытие попапа кликом на оверлей
+const closePopupOverlay = () => {
+  //собираем из попапов массив
+const popup = Array.from(document.querySelectorAll('.popup'));
+popup.forEach(popup => {
+  //обработчик события
+  popup.addEventListener("click", (evt) => {
+    //
+    if (evt.currentTarget === evt.target) {
+      closePopup(popup)
+    }
+  })
+})
+}
+
+closePopupOverlay()
+
 
 const handleFormSubmitElementProfile = function (evt) {
   evt.preventDefault();
@@ -50,20 +82,18 @@ const popupCardsOpenButtomElement = document.querySelector('.profile__add-button
 const popupCardsCloseButtomElement = popupCards.querySelector('.popup__close');
 
 
-//Обработчики событий
+//Обработчики событий при открытии попапа добавления карточек
 popupCardsOpenButtomElement.addEventListener('click', function() {
   openPopup(popupCards);
+  const buttonElement = popupCards.querySelector('.form__submit-button');
+  disableButtonState(buttonElement, { inactiveButtonClass: validationConfig.inactiveButtonClass})
 });
 
 popupCardsCloseButtomElement.addEventListener('click', function() {
   closePopup(popupCards);
 });
 
-
-
-
-
-//Функция размещения карточек из массива выше
+//Функция размещения карточек из массива initialCards (в импорте)
 
 function createCard(cardInfo) {
   const card = cardTemplate.cloneNode(true);
@@ -113,7 +143,7 @@ initialCards.forEach(element => {
 //добавление новых карточек
 
 const cardImage = document.querySelector('#link-input');
-const cardName = document.querySelector('#name-input');
+const cardName = document.querySelector('#place-input');
 const formCards = popupCards.querySelector('.form');
 
 
