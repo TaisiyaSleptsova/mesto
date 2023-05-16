@@ -1,12 +1,13 @@
-import { handleOpenPopupImageZoom, openPopup } from "./index.js";
-//Функция размещения карточек из массива initialCards (в импорте)
+
 
 export default class Card {
     // Собираем конструктор. На входе список аргументов в виде объекта и добавляем в него селектор шаблона
-    constructor(data, templateSelector) {
-      this._name = data.name;
+    constructor(data, templateSelector, handleCardClick) {
+      this._data = data;
+      this._name = data.placename;
       this._link = data.link;
       this._templateSelector = templateSelector;
+      this._handleCardClick = handleCardClick;
     }
     
     // Клонируем карточку
@@ -39,9 +40,7 @@ export default class Card {
     //метод, в который добавляем все обработчики событий
     _setEventListeners () {
       //открытие попапа с увеличенной картинкой
-      this._zoomElement.addEventListener('click', () => {
-        this._handleOpenPopupZoom();
-      });
+      this._zoomElement.addEventListener('click', this._handleOpenPopupZoom);
       //проставление лайка
       this._cardLikeButton.addEventListener('click', () => {
         this._handleLikeCard();
@@ -53,8 +52,8 @@ export default class Card {
     }
   
     //открытие попапа с картинкой при клике на карточку. Вызываем внешнюю функцию, передавая ей внутренние параметры карточки
-    _handleOpenPopupZoom () {
-      handleOpenPopupImageZoom({name: this._name, link: this._link});
+    _handleOpenPopupZoom = () => {
+      this._handleCardClick(this._data);
     }
   
     //проставление лайков

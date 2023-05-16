@@ -42,6 +42,11 @@ disableButtonState = () => {
     this._buttonElement.setAttribute('disabled',true);
   }
 
+// Функция очищает ошибки, если ввести невалидные значения, после чего закрыть и снова открыть модальное окно профиля
+disableValidationForm () {
+  this._inputSelectorList.forEach((input) => { this._hideInputError(input) });
+}
+
 _enableButtonState () {
   this._buttonElement.classList.remove(this._inactiveButtonClass);
   this._buttonElement.removeAttribute('disabled');
@@ -71,7 +76,7 @@ _showInputError (inputElement) {
 };
   
   //функция удаления класса с ошибкой
-_hideInputError (inputElement) {
+_hideInputError = (inputElement) => {
   //находим элемент ошибки внутри функции
   const formError = this._form.querySelector(`.${inputElement.id}-error`);
 
