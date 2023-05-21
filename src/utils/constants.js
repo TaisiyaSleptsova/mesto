@@ -29,9 +29,7 @@ export const listCards = document.querySelector('.elements__list');
 //кнопки открытия
 export const popupCardsOpenButtomElement = document.querySelector('.profile__add-button');
 export const popupOpenButtomElementProfile = document.querySelector('.profile__edit-button');
-//переменные для валидации
-export const formProfile = document.querySelector('.form_profile');
-export const formAddImage = document.querySelector('.form_add-image');
+
 
 export const userData ={
   nameInput: document.querySelector('.profile__title'),

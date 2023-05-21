@@ -48,6 +48,7 @@ export default class Card {
       //удаление карточки
       this._cardDelete.addEventListener('click', () => {
         this._cardRemove();
+        this._element = null;
       })
     }
   
