@@ -1,15 +1,17 @@
 export default class UserInfo {
-  constructor ({nameInput, jobInput}) {
+  constructor ({nameInput, jobInput, avatar}) {
     this._nameInput = nameInput;
     this._jobInput = jobInput;
+    this._avatar = avatar;
   }
 
   getUserInfo () {
-    return {name: this._nameInput.textContent, about: this._jobInput.textContent}
+    return {name: this._nameInput.textContent, about: this._jobInput.textContent, avatar: this._avatar.src}
   }
 
-  setUserInfo (dataForms) {
-    this._nameInput.textContent = dataForms.name;
-    this._jobInput.textContent = dataForms.about;
+  setUserInfo ({name, about, avatar}) {
+    this._nameInput.textContent = name;
+    this._jobInput.textContent = about;
+    this._avatar.src = avatar;
   }
 }
