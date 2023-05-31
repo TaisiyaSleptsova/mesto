@@ -47,11 +47,11 @@ openImage.setEventListeners();
 
 //создание новой карточк
 const createNewCard = (data) => {
-  const card = new Card(data, '.element', openImage.open, openDelete.open, (element, cardId) => {
-  if (element.classList.contains('element__like_active')) {
+  const card = new Card(data, '.element', openImage.open, openDelete.open, (isLiked, element, cardId) => {
+  if (isLiked) {
     api.deleteLikes(cardId)
       .then(res => {
-        card.addLikeCard(res.likes);
+        card.addLikeCard(res.likes)
       })
       .catch(err => console.log(`Ошибка при снятии лайка: ${err}`))
   } else {
@@ -72,10 +72,10 @@ const section = new Section({ renderer: (item) => {
 
 //Добавление карточек через попап
 const popupAddImage = new PopupWithForm('.popup_cards', (data) => {
-    Promise.all([api.getUserInfo(), api.addNewCard(data)])
-    .then(([profileData, cardData]) => {
-      cardData.myId = profileData._id
-      listCards.prepend(createNewCard(cardData))
+    api.addNewCard(data)
+      .then( cardData => {
+      cardData.myId = userInfo.getId()
+      section.addItemPrepend(createNewCard(cardData))
       popupAddImage.close()
     })
     .catch(err => console.log(`Ошибка при добавлении карточки: ${err}`))
@@ -145,6 +145,7 @@ Promise.all([api.getUserInfo(), api.getListCards()])
   .then(([profileData, cardsDate]) => {
     cardsDate.forEach(item => item.myId = profileData._id)
     userInfo.setUserInfo({ name: profileData.name, about: profileData.about, avatar: profileData.avatar })
+    userInfo.setId(profileData._id)
     section.renderItems(cardsDate)
   })
 

@@ -10,6 +10,7 @@ export default class Card {
       this._userId = data.owner._id;
       this._cardId = data._id;
       this._likes = data.likes;
+      this._isLiked = false;
       this._likesLength = data.likes.length;
       this._templateSelector = templateSelector;
       this._handleCardClick = handleCardClick;
@@ -71,14 +72,17 @@ export default class Card {
   
     //проставление и снятие лайков
     _handleLikeCard = () => {
-      this._addLike(this._cardLikeButton, this._cardId)
+      this._addLike(this._isLiked, this._cardLikeButton, this._cardId)
     // this._cardLikeButton.classList.toggle('element__like_active');
     }
-    
+
     //проставление лайков
     addLikeCard (likes) {
+      if (this._isLiked = true) {
       this._cardLikeButton.classList.toggle('element__like_active');
-      this._element.querySelector('.element__like-count').textContent = likes.length;        
+      this._element.querySelector('.element__like-count').textContent = likes.length;
+      this._isLiked = false
+      } 
     }
 
     //счетчик лайков
@@ -86,7 +90,7 @@ export default class Card {
       this._likes.forEach(item => {
         if (item._id === this._myId) {
           this._cardLikeButton.classList.add('element__like_active')
-          // this._addLikeCard ()
+          this._isLiked = true
         } return 
       });
       this._element.querySelector('.element__like-count').textContent = this._likesLength;
