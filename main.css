@@ -36,12 +36,13 @@
 .popup__image{max-height:75vh;max-width:75vw}
 .popup__caption{color:#fff;font-size:12px;font-weight:400;line-height:14.52px;margin-top:10px}
 .popup_zoom{background-color:rgba(0,0,0,.9)}
-.form{margin:54px auto 37px;padding:0;width:calc(100% - 72px)}@media screen and (max-width:900px){.form{margin-bottom:25px;margin-top:75px;width:calc(100% - 44px)}}
+.form{margin:54px auto 27px;padding:0;width:calc(100% - 72px)}@media screen and (max-width:900px){.form{margin-bottom:25px;margin-top:75px;width:calc(100% - 44px)}}
+.form_delete{margin-top:35px}
 .form__input-conteiner{border:none;display:flex;flex-direction:column;margin:0;padding:0}
 .form__input{border:0;border-bottom:1px solid rgba(0,0,0,.2);box-sizing:border-box;font-size:14px;font-weight:400;line-height:16.94px;max-height:27px;padding:0 0 13px;width:100%}
 .form__submit-button{background-color:#000;border:none;border-radius:2px;color:#fff;cursor:pointer;font-size:18px;font-weight:400;line-height:21.78px;margin-top:18px;min-height:50px;padding:0;width:100%}.form__submit-button:hover{opacity:80%;transition:1s ease-out}@media screen and (max-width:900px){.form__submit-button{font-size:14px;line-height:16.94px;margin-top:15px;min-height:46px}}
 .form__submit-button_disabled{background-color:transparent;border:1px solid #000;color:#000;opacity:.2;pointer-events:none}
-.form_confirmation{margin:38px auto 36px;max-width:358px}
+.form__submit-button_confirmation{margin:0 auto;max-width:358px}
 .form__input_type_error{border-bottom:1px solid red}
 .form__error{color:red;font-size:12px;font-weight:400;line-height:14.52px;min-height:30px;padding-top:5px;visibility:hidden}
 .form__error_active{visibility:visible}
